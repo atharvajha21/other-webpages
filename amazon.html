@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon.com. Spend less. Smile more.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for horizontal product carousels */
+        .product-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .product-carousel::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .product-carousel::-webkit-scrollbar-thumb {
+            background: #c7c7c7;
+            border-radius: 10px;
+        }
+        .product-carousel::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        /* Style for the "All" dropdown in search */
+        .search-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+        }
+        #sticky{
+            position: static;
+            position: relative;
+            top: 40px;
+            left: 40px;
+            position: absolute;
+            inset-inline-start: 40px;
+            inset-block-start: 40px;
+            position: sticky;
+            top: 20px
+        }
+    </style>
+</head>
+<body class="bg-[#EAEDED]" id="sticky">
+
+    <!-- Header -->
+    <header class="bg-[#131921] text-white" id="sticky">
+        <!-- Top Nav -->
+        <div class="flex items-center justify-between p-2 lg:px-4">
+            <!-- Logo -->
+            <a href="#" class="border border-transparent hover:border-white rounded p-2">
+                <img src="https://media.tenor.com/JDPHxCqgEd0AAAAM/amazon.gif" alt="Amazon Logo" class="h-8 w-auto">
+            </a>
+
+            <!-- Deliver to -->
+            <a href="#" class="hidden sm:flex items-center border border-transparent hover:border-white rounded p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                    <span class="text-xs text-gray-300">Deliver to</span>
+                    <span class="text-sm font-bold block">India</span>
+                </div>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="flex-grow flex items-center mx-2 lg:mx-4">
+                <div class="flex w-full rounded-md overflow-hidden">
+                    <select class="search-select hidden md:block bg-gray-200 text-gray-700 text-xs px-2 py-3 border-r border-gray-300 focus:outline-none">
+                        <option>All</option>
+                        <option>Arts & Crafts</option>
+                        <option>Books</option>
+                        <option>Computers</option>
+                        <option>Electronics</option>
+                    </select>
+                    <input type="text" class="p-3 w-full text-black focus:outline-none" placeholder="Search Amazon">
+                    <button class="bg-[#FEBD69] hover:bg-[#F3A847] px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Language -->
+             <a href="#" class="hidden lg:flex items-center border border-transparent hover:border-white rounded p-2">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="h-5 w-auto mr-1" alt="US Flag">
+                <span class="text-sm font-bold">EN</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+
+            <!-- Account & Lists -->
+            <a href="#" class="border border-transparent hover:border-white rounded p-2">
+                <span class="text-xs">Hello, sign in</span>
+                <span class="text-sm font-bold flex items-center">
+                    Account & Lists
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </a>
+
+            <!-- Returns & Orders -->
+            <a href="#" class="hidden md:block border border-transparent hover:border-white rounded p-2">
+                <span class="text-xs">Returns</span>
+                <span class="text-sm font-bold block">& Orders</span>
+            </a>
+
+            <!-- Cart -->
+            <a href="#" class="flex items-end border border-transparent hover:border-white rounded p-2 relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="absolute top-0 left-1/2 -translate-x-1/4 text-lg font-bold text-[#FEBD69]">0</span>
+                <span class="hidden lg:inline text-sm font-bold ml-1">Cart</span>
+            </a>
+        </div>
+        
+        <!-- Bottom Nav -->
+        <div class="flex items-center bg-[#232F3E] p-2 lg:px-4 text-sm space-x-4">
+            <a href="#" class="flex items-center font-semibold border border-transparent hover:border-white rounded px-2 py-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                All
+            </a>
+            <a href="#" class="font-medium border border-transparent hover:border-white rounded px-2 py-1">Today's Deals</a>
+            <a href="#" class="font-medium border border-transparent hover:border-white rounded px-2 py-1">Customer Service</a>
+            <a href="#" class="font-medium border border-transparent hover:border-white rounded px-2 py-1">Registry</a>
+            <a href="#" class="font-medium border border-transparent hover:border-white rounded px-2 py-1">Gift Cards</a>
+            <a href="#" class="font-medium border border-transparent hover:border-white rounded px-2 py-1">Sell</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- Hero Image -->
+
+        <div class="mb-6">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/4930db48002457.588b576d6638b.gif" alt="Hero Banner" class="w-full h-auto rounded-md">
+        </div>
+
+        <!-- Product Grids -->
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <!-- Card 1 -->
+
+            <div class="bg-white p-4 rounded-md shadow">
+                <h2 class="text-xl font-bold mb-2">Gaming accessories</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <img src="https://m.media-amazon.com/images/I/71wiTgpfJRL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded" alt="Headsets">
+                        <span class="text-xs mt-1 block">Headsets</span>
+                    </div>
+                    <div>
+                        <img src="https://m.media-amazon.com/images/I/71h4wfu+TiL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded" alt="Keyboards">
+                        <span class="text-xs mt-1 block">Keyboards</span>
+                    </div>
+                    <div>
+                        <img src="https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded" alt="Computer mice">
+                        <span class="text-xs mt-1 block">Computer mice</span>
+                    </div>
+                    <div>
+                        <img src="https://m.media-amazon.com/images/I/71MIQ1tuZrL._AC_UL640_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded" alt="Chairs">
+                        <span class="text-xs mt-1 block">Chairs</span>
+                    </div>
+                </div>
+                <a href="#" class="text-sm text-blue-600 hover:underline mt-4 inline-block">See more</a>
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="bg-white p-4 rounded-md shadow">
+                <h2 class="text-xl font-bold mb-4">Deals in PCs</h2>
+                <img src=" https://m.media-amazon.com/images/I/41-mIUstsvL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded mb-4" alt="PC Deals">
+                <a href="#" class="text-sm text-blue-600 hover:underline">Shop now</a>
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="bg-white p-4 rounded-md shadow">
+                <h2 class="text-xl font-bold mb-4">Amazon Gadget Store</h2>
+                <img src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/8cef45b3-a49a-4f59-a501-91af4877401c._CR0,0,1200,628_SX860_CB1169409_QL70_.jpg" class="w-full h-auto object-cover rounded mb-4" alt="Gadgets">
+                <a href="#" class="text-sm text-blue-600 hover:underline">See more from Amazon Gadgets</a>
+            </div>
+            
+            <!-- Card 4 -->
+
+            <div class="bg-white p-4 rounded-md shadow">
+                <h2 class="text-xl font-bold mb-2">Refresh your space</h2>
+                 <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <img src="https://m.media-amazon.com/images/I/71jQvStTIDL._AC_UL640_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded" alt="Dining">
+                        <span class="text-xs mt-1 block">Dining</span>
+                    </div>
+                    <div>
+                        <img src="https://m.media-amazon.com/images/I/71dHbHQItEL._AC_UL640_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded" alt="Home">
+                        <span class="text-xs mt-1 block">Home</span>
+                    </div>
+                    <div>
+                        <img src="https://m.media-amazon.com/images/I/41Sb3p-NPBL._AC_UL640_FMwebp_QL65_.jpg" class="w-full h-auto object-cover rounded" alt="Kitchen">
+                        <span class="text-xs mt-1 block">Kitchen</span>
+                    </div>
+                    <div>
+                        <img src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/76ed810f-57d9-4e6e-9076-d8e0d7485fc0._CR0,0,1200,628_SX860_CB1169409_QL70_.jpg" class="w-full h-auto object-cover rounded" alt="Health & Beauty">
+                        <span class="text-xs mt-1 block">Health & Beauty</span>
+                    </div>
+                </div>
+                <a href="#" class="text-sm text-blue-600 hover:underline mt-4 inline-block">See more</a>
+            </div>
+        </div>
+
+        <!-- Product Carousel 1 -->
+
+        <div class="bg-white p-4 rounded-md shadow mt-6">
+            <h2 class="text-xl font-bold mb-4">Frequently repurchased in Drugstore</h2>
+            <div class="product-carousel flex items-center space-x-4 overflow-x-auto pb-4">
+                <div class="flex-shrink-0 w-40">
+                    <img src="https://m.media-amazon.com/images/I/61zaiwVDfLL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Product 1">
+                </div>
+                <div class="flex-shrink-0 w-40">
+                    <img src="https://m.media-amazon.com/images/I/81sYVjyRQEL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Product 2">
+                </div>
+                <div class="flex-shrink-0 w-40">
+                    <img src="https://m.media-amazon.com/images/I/61GuCLukMnL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Product 3">
+                </div>
+                <div class="flex-shrink-0 w-40">
+                    <img src="https://m.media-amazon.com/images/I/61+IwOVFgyL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Product 4">
+                </div>
+                <div class="flex-shrink-0 w-40">
+                    <img src="https://m.media-amazon.com/images/I/61ZiK5pMlrL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Product 5">
+                </div>
+                <div class="flex-shrink-0 w-40">
+                    <img src="https://m.media-amazon.com/images/I/51MMNTBb+eS._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Product 6">
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Carousel 2 -->
+
+         <div class="bg-white p-4 rounded-md shadow mt-6">
+            <h2 class="text-xl font-bold mb-4">Top Sellers in Books for you</h2>
+            <div class="product-carousel flex items-center space-x-4 overflow-x-auto pb-4">
+                <div class="flex-shrink-0 w-32">
+                    <img src="https://m.media-amazon.com/images/I/715qi-cIbML._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Book 1">
+                </div>
+                <div class="flex-shrink-0 w-32">
+                    <img src="https://m.media-amazon.com/images/I/71Q2fXtMhaL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Book 2">
+                </div>
+                <div class="flex-shrink-0 w-32">
+                    <img src="https://m.media-amazon.com/images/I/91G7kNP1gNL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Book 3">
+                </div>
+                <div class="flex-shrink-0 w-32">
+                    <img src="https://m.media-amazon.com/images/I/71XpkRq0ncL._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Book 4">
+                </div>
+                <div class="flex-shrink-0 w-32">
+                    <img src="https://m.media-amazon.com/images/I/71qR+kG+43L._AC_UY436_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Book 5">
+                </div>
+                <div class="flex-shrink-0 w-32">
+                    <img src="https://m.media-amazon.com/images/I/61MCDl9XbqL._AC_UL1280_FMwebp_QL65_.jpg" class="w-full h-auto rounded" alt="Book 6">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="text-white">
+        <div class="bg-[#37475A] hover:bg-[#485769] text-center py-4 text-sm font-medium cursor-pointer">
+            Back to top
+        </div>
+        <div class="bg-[#232F3E] py-10">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+                <div>
+                    <h3 class="font-bold mb-2">Get to Know Us</h3>
+                    <ul class="text-sm space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:underline">Careers</a></li>
+                        <li><a href="#" class="hover:underline">Blog</a></li>
+                        <li><a href="#" class="hover:underline">About Amazon</a></li>
+                        <li><a href="#" class="hover:underline">Investor Relations</a></li>
+                        <li><a href="#" class="hover:underline">Amazon Devices</a></li>
+                        <li><a href="#" class="hover:underline">Amazon Science</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Make Money with Us</h3>
+                    <ul class="text-sm space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:underline">Sell products on Amazon</a></li>
+                        <li><a href="#" class="hover:underline">Sell on Amazon Business</a></li>
+                        <li><a href="#" class="hover:underline">Sell apps on Amazon</a></li>
+                        <li><a href="#" class="hover:underline">Become an Affiliate</a></li>
+                        <li><a href="#" class="hover:underline">Advertise Your Products</a></li>
+                        <li><a href="#" class="hover:underline">Self-Publish with Us</a></li>
+                        <li><a href="#" class="hover:underline">Host an Amazon Hub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Amazon Payment Products</h3>
+                    <ul class="text-sm space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:underline">Amazon Business Card</a></li>
+                        <li><a href="#" class="hover:underline">Shop with Points</a></li>
+                        <li><a href="#" class="hover:underline">Reload Your Balance</a></li>
+                        <li><a href="#" class="hover:underline">Amazon Currency Converter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Let Us Help You</h3>
+                    <ul class="text-sm space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:underline">Amazon and COVID-19</a></li>
+                        <li><a href="#" class="hover:underline">Your Account</a></li>
+                        <li><a href="#" class="hover:underline">Your Orders</a></li>
+                        <li><a href="#" class="hover:underline">Shipping Rates & Policies</a></li>
+                        <li><a href="#" class="hover:underline">Returns & Replacements</a></li>
+                        <li><a href="#" class="hover:underline">Manage Your Content and Devices</a></li>
+                        <li><a href="#" class="hover:underline">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bg-[#131921] py-8 border-t border-gray-700">
+            <div class="max-w-7xl mx-auto flex flex-col items-center text-xs text-gray-300 space-y-2">
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:underline">Conditions of Use</a>
+                    <a href="#" class="hover:underline">Privacy Notice</a>
+                    <a href="#" class="hover:underline">Your Ads Privacy Choices</a>
+                </div>
+                <span>© 1996-2024, Amazon.com, Inc. or its affiliates</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
